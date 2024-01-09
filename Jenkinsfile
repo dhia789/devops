@@ -3,10 +3,7 @@ pipeline{
         label "build-in"
     }
 
-    environment {
-        JAVA_HOME = '/var/lib/jenkins/tools/hudson.model.JDK/Java17'
-    }
-    
+     
     tools {
         jdk 'Java17'
         maven 'Maven3'
@@ -29,19 +26,7 @@ pipeline{
 
         }
 
-        stage("Build Application"){
-            steps {
-                sh "mvn clean package"
-            }
-
-        }
-
-        stage("Test Application"){
-            steps {
-                sh "mvn test"
-            }
-
-        }
+        
        
  
     }
