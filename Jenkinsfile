@@ -1,9 +1,14 @@
-pipeline{
-    agent{
+pipeline {
+    agent {
         label "build-in"
     }
 
-     
+    environment {
+        def javaHome = tool name: 'Java17', type: 'jdk'
+        PATH = "${javaHome}/bin:${env.PATH}"
+        JAVA_HOME = "${javaHome}"
+    }
+
     tools {
         jdk 'Java17'
         maven 'Maven3'
